@@ -1,11 +1,13 @@
 
 import { Card } from './components/ui/Card';
+import { FeaturesSection } from './components/ui/FeaturesSection';
 import { HeroParallax } from './components/ui/hero-parallax'
 
 const App = () => {
   return (
     <div>
        <HeroParallax products={products} />
+       {/* <FeaturesSection /> */}
        <Card />
     </div>
   )
