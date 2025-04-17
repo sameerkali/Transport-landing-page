@@ -1,6 +1,6 @@
 import React from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { Navbar } from "../../pages/Navbar";
+import { Navbar2 } from "../../pages/Navbar";
 
 export const HeroParallax = ({
   products,
@@ -52,7 +52,7 @@ export const HeroParallax = ({
       ref={ref}
       className="h-[300vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
-        <Navbar className="top-2 " />
+        {/* <Navbar2 /> */}
       <Header />
       <motion.div
         style={{
