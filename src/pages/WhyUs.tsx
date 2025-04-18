@@ -25,7 +25,7 @@ const WhyUs = () => {
           {/* Left side - Image */}
           <div className="md:w-1/2">
             <img 
-              src="/assets/truck-side.jpg" 
+              src="/assets/partners/client-5.jpg" 
               alt="Transport Truck" 
               className="rounded-lg shadow-lg w-full h-auto"
               onError={(e) => {

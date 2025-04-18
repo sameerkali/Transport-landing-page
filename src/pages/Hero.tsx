@@ -63,7 +63,7 @@ const Hero = () => {
             {/* Transport Image */}
             <div className="w-full h-auto mt-4 flex justify-center">
               <img 
-                src="/assets/transport-truck.png" 
+                src="../../public/assets/partners/hero-banner.jpg" 
                 alt="Transport Truck" 
                 className="max-w-full max-h-[300px] object-contain rounded-lg shadow-lg"
                 onError={(e) => {
