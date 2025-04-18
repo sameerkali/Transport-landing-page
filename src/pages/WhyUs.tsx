@@ -38,7 +38,7 @@ const WhyUs = () => {
           <div className="md:w-1/2">
             <div className="mb-6">
               <p className="text-xl mb-4" style={{ color: themeColors.text.primary }}>
-                I'm Faisal Ali and I'm a <span style={{ color: themeColors.secondary }}>transporter</span>
+                I'm Sameer Faridi and I'm a <span style={{ color: themeColors.secondary }}>transporter</span>
               </p>
               <p className="mb-4" style={{ color: themeColors.text.secondary }}>
                 Our work is done on time and with accuracy. All our partners [drivers] are well trained and known about their work. Together we have earned the trust of our customers for a long time, hope it remains the same in future also.

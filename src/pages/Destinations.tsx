@@ -11,7 +11,7 @@ const indianStates = [
   { name: 'Bihar', capital: 'Patna', image: '/assets/states/bihar.jpg' },
   { name: 'Chhattisgarh', capital: 'Raipur', image: '/assets/states/chhattisgarh.jpg' },
   { name: 'Goa', capital: 'Panaji', image: '/assets/states/goa.jpg' },
-  { name: 'Gujarat', capital: 'Gandhinagar', image: '/assets/states/gujarat.jpg' },
+  { name: 'Gujarat', capital: 'Gandhinagar', image: '/assets/states/gujarat.avif' },
   { name: 'Haryana', capital: 'Chandigarh', image: '/assets/states/haryana.jpg' },
   { name: 'Himachal Pradesh', capital: 'Shimla', image: '/assets/states/himachal-pradesh.jpg' },
   { name: 'Jharkhand', capital: 'Ranchi', image: '/assets/states/jharkhand.jpg' },
@@ -47,7 +47,13 @@ const unionTerritories = [
   { name: 'Puducherry', capital: 'Puducherry', image: '/assets/states/puducherry.jpg' },
 ];
 
+import { useEffect } from 'react';
+
 const Destinations = () => {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const { themeColors } = useTheme();
   const [activeTab, setActiveTab] = useState('states');
   const [selectedRegion, setSelectedRegion] = useState('all');

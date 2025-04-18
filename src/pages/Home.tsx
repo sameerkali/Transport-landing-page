@@ -1,16 +1,14 @@
-
 import Hero from "./Hero";
 import ScrollVelocity from "../TextAnimations/ScrollVelocity/ScrollVelocity";
 import WhyUs from "./WhyUs";
 import Partners from "./Partners";
-import { Link } from "react-router-dom";
-import { useTheme } from "../context/ThemeContext";
+import NationwideCoverage from "../components/NationwideCoverage/NationwideCoverage";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-  const { themeColors } = useTheme();
 
   return (
-    <div>
+    <div className="pb-20">
       <Hero />
       <ScrollVelocity
         texts={["Transport Solutions", "Reliable Service"]}
@@ -19,26 +17,7 @@ const Home = () => {
       />
       <WhyUs />
       <Partners />
-      
-      {/* Destinations Teaser */}
-      <div className="py-16 text-center" style={{ backgroundColor: themeColors.background }}>
-        <h2 className="text-3xl font-bold mb-4" style={{ color: themeColors.text.primary }}>
-          Nationwide Coverage
-        </h2>
-        <p className="mb-6 max-w-2xl mx-auto" style={{ color: themeColors.text.secondary }}>
-          We provide transport services across all states and union territories in India.
-        </p>
-        <Link 
-          to="/destinations" 
-          className="inline-block px-6 py-3 rounded-lg font-medium transition-colors duration-300"
-          style={{ 
-            backgroundColor: themeColors.secondary,
-            color: '#FFFFFF'
-          }}
-        >
-          Explore Our Destinations
-        </Link>
-      </div>
+      <NationwideCoverage />
     </div>
   );
 };
