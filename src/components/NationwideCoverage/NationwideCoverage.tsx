@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useTheme } from '../../context/ThemeContext';
 import IndiaMap from '../IndiaMap/IndiaMap';
 import AwsButton from '../../components/AwsButton/AwsButton';
+import CountUp from '../../TextAnimations/CountUp/CountUp';
 
 const NationwideCoverage: React.FC = () => {
   const { themeColors } = useTheme();
@@ -62,19 +63,53 @@ const NationwideCoverage: React.FC = () => {
       {/* Stats section */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-8 px-4">
         <div className="p-4 rounded-lg" style={{ backgroundColor: themeColors.background, border: `1px solid ${themeColors.gridBorder}` }}>
-          <div className="text-3xl font-bold mb-1" style={{ color: themeColors.secondary }}>28+</div>
+          <div className="text-3xl font-bold mb-1" style={{ color: themeColors.secondary }}>
+
+
+          <CountUp
+  from={0}
+  to={28}
+  separator=","
+  direction="up"
+  duration={1}
+  className="count-up-text"
+/>+
+  </div>
           <div className="text-sm" style={{ color: themeColors.text.secondary }}>States Covered</div>
         </div>
         <div className="p-4 rounded-lg" style={{ backgroundColor: themeColors.background, border: `1px solid ${themeColors.gridBorder}` }}>
-          <div className="text-3xl font-bold mb-1" style={{ color: themeColors.secondary }}>8+</div>
+          <div className="text-3xl font-bold mb-1" style={{ color: themeColors.secondary }}>          <CountUp
+  from={0}
+  to={8}
+  separator=","
+  direction="up"
+  duration={1}
+  className="count-up-text"
+/>+</div>
           <div className="text-sm" style={{ color: themeColors.text.secondary }}>Union Territories</div>
         </div>
         <div className="p-4 rounded-lg" style={{ backgroundColor: themeColors.background, border: `1px solid ${themeColors.gridBorder}` }}>
-          <div className="text-3xl font-bold mb-1" style={{ color: themeColors.secondary }}>500+</div>
+          <div className="text-3xl font-bold mb-1" style={{ color: themeColors.secondary }}>          <CountUp
+  from={0}
+  to={500}
+  separator=","
+  direction="up"
+  duration={3}
+  className="count-up-text"
+/>+</div>
           <div className="text-sm" style={{ color: themeColors.text.secondary }}>Cities & Towns</div>
         </div>
         <div className="p-4 rounded-lg" style={{ backgroundColor: themeColors.background, border: `1px solid ${themeColors.gridBorder}` }}>
-          <div className="text-3xl font-bold mb-1" style={{ color: themeColors.secondary }}>1000+</div>
+          <div className="text-3xl font-bold mb-1" style={{ color: themeColors.secondary }}>
+          <CountUp
+  from={0}
+  to={1100}
+  separator=","
+  direction="up"
+  duration={1}
+  className="count-up-text"
+/>+
+          </div>
           <div className="text-sm" style={{ color: themeColors.text.secondary }}>Happy Clients</div>
         </div>
       </div>

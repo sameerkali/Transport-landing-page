@@ -23,6 +23,18 @@ const Header = () => {
     };
   }, [scrolled]);
 
+  // Function to handle scrolling to contact section
+  const scrollToContact = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const contactSection = document.getElementById('contact-section');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    } else if (location.pathname !== '/') {
+      // If not on home page, navigate to home and then scroll
+      window.location.href = '/#contact-section';
+    }
+  };
+
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 px-6 py-4 flex justify-between items-center transition-all duration-300 ${
@@ -45,9 +57,23 @@ const Header = () => {
         <NavLink to="/destinations" active={location.pathname === '/destinations'} themeColors={themeColors}>
           Destinations
         </NavLink>
-        <NavLink to="/contact" active={location.pathname === '/contact'} themeColors={themeColors}>
+        {/* Modified Contact link to use the scroll function instead of navigation */}
+        <a 
+          href="#contact-section"
+          onClick={scrollToContact}
+          className={`relative font-bold text-base transition-all duration-300 hover:scale-105 ${
+            location.hash === '#contact-section' ? 'text-opacity-100' : 'text-opacity-80 hover:text-opacity-100'
+          }`}
+          style={{ color: themeColors.text.primary }}
+        >
           Contact
-        </NavLink>
+          <span 
+            className={`absolute bottom-0 left-0 w-full h-0.5 transform origin-left transition-transform duration-300 ${
+              location.hash === '#contact-section' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+            }`}
+            style={{ backgroundColor: themeColors.secondary }}
+          ></span>
+        </a>
         
         {/* Theme Toggle Button */}
         <button
