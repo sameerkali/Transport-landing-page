@@ -2,6 +2,7 @@ import { useState } from "react";
 import TiltedCard from "../components/TiltedCard/TiltedCard";
 import { useTheme } from "../context/ThemeContext";
 import TrueFocus from "../TextAnimations/TrueFocus/TrueFocus";
+import AwsButton from "../components/AwsButton/AwsButton";
 
 const Partners = () => {
   const { themeColors } = useTheme();
@@ -134,16 +135,9 @@ const Partners = () => {
 
         {!showAll && partners.length > 6 && (
           <div className="mt-12 text-center">
-            <button
-              onClick={() => setShowAll(true)}
-              className="px-6 py-3 rounded-lg font-medium transition-colors duration-300"
-              style={{ 
-                backgroundColor: themeColors.secondary,
-                color: '#FFFFFF'
-              }}
-            >
+            <AwsButton onClick={() => setShowAll(true)}>
               Show More Partners
-            </button>
+            </AwsButton>
           </div>
         )}
       </div>

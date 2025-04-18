@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTheme } from '../context/ThemeContext';
 import TrueFocus from '../TextAnimations/TrueFocus/TrueFocus';
+import AwsButton from '../components/AwsButton/AwsButton';
 
 const WhyUs = () => {
   const { themeColors } = useTheme();
@@ -47,15 +48,9 @@ const WhyUs = () => {
                 We have got 5 years of amazing skills working in this field, we have achieved many successes and achievements. We will continue to do this work with the same dedication so that we can earn your trust. Please give us a chance to serve you once. Thank you.
               </p>
             </div>
-            <button
-              className="px-6 py-3 rounded-lg font-medium transition-colors duration-300"
-              style={{ 
-                backgroundColor: themeColors.secondary,
-                color: '#FFFFFF'
-              }}
-            >
+            <AwsButton>
               Contact Me
-            </button>
+            </AwsButton>
           </div>
         </div>
       </div>

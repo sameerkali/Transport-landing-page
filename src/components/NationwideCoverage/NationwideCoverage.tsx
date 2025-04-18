@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTheme } from '../../context/ThemeContext';
 import IndiaMap from '../IndiaMap/IndiaMap';
+import AwsButton from '../../components/AwsButton/AwsButton';
 
 const NationwideCoverage: React.FC = () => {
   const { themeColors } = useTheme();
@@ -50,17 +51,11 @@ const NationwideCoverage: React.FC = () => {
               <span style={{ color: themeColors.text.secondary }}>Dedicated routes for time-sensitive deliveries</span>
             </li>
           </ul>
-          <Link 
-            to="/destinations" 
-            className="inline-block px-6 py-3 rounded-lg font-medium transition-colors duration-300 mt-2"
-            style={{ 
-              backgroundColor: themeColors.secondary,
-              color: '#FFFFFF'
-            }}
-            onClick={handleNavigate}
-          >
-            Explore Our Destinations
-          </Link>
+          <div onClick={handleNavigate}>
+            <AwsButton>
+              Explore Our Destinations
+            </AwsButton>
+          </div>
         </div>
       </div>
       

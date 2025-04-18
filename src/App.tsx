@@ -4,11 +4,23 @@ import Home from './pages/Home';
 // import Services from './pages/Services';
 import Destinations from './pages/Destinations';
 // import Contact from './pages/Contact';
-import { ThemeProvider } from './context/ThemeContext';
+import { ThemeProvider, useTheme } from './context/ThemeContext';
 import Header from './components/Header/Header';
+import ClickSpark from './Animations/ClickSpark/ClickSpark';
+import { animations } from './content';
 
 function App() {
+  const { themeColors } = useTheme();
+
   return (
+    <ClickSpark
+    sparkColor={themeColors.sparkColor}
+    sparkSize={animations.spark.size}
+    sparkRadius={animations.spark.radius}
+    sparkCount={animations.spark.count}
+    duration={animations.spark.duration}
+  >
+
     <ThemeProvider>
       <Router>
         <Header />
@@ -20,6 +32,7 @@ function App() {
         </Routes>
       </Router>
     </ThemeProvider>
+  </ClickSpark>
   );
 }
 

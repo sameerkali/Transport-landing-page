@@ -1,0 +1,137 @@
+.aws-btn {
+  --button-default-height: 48px;
+  --button-default-font-size: 14px;
+  --button-default-border-radius: 6px;
+  --button-horizontal-padding: 20px;
+  --button-raise-level: 5px;
+  --button-hover-pressure: 2;
+  --transform-speed: .185s;
+  --button-primary-color: #FF7A00;
+  --button-primary-color-dark: #CC6200;
+  --button-primary-color-light: #FFB066;
+  --button-primary-color-hover: #FF8C1A;
+  --button-primary-border: none;
+  --button-secondary-color: #fffc6c;
+  --button-secondary-color-dark: #b9b500;
+  --button-secondary-color-light: #6c6a00;
+  --button-secondary-color-hover: #fffb3e;
+  --button-secondary-border: none;
+  --button-anchor-color: #f3c8ad;
+  --button-anchor-color-dark: #734922;
+  --button-anchor-color-light: #4c3016;
+  --button-anchor-color-hover: #f1bfa0;
+  --button-anchor-border: 1px solid #8c633c;
+  
+  position: relative;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: var(--button-default-font-size);
+  width: auto;
+  height: var(--button-default-height);
+  margin: 0;
+}
+
+.aws-btn__wrapper {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.aws-btn__content {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--button-default-height);
+  padding: 0 var(--button-horizontal-padding);
+  color: white;
+  font-weight: 500;
+}
+
+.aws-btn__shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--button-default-border-radius);
+  background: var(--button-primary-color-dark);
+  transform: translateY(var(--button-raise-level));
+  transition: transform var(--transform-speed) ease-in-out;
+  z-index: 1;
+}
+
+.aws-btn__edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--button-default-border-radius);
+  background: var(--button-primary-color-dark);
+  z-index: 2;
+}
+
+.aws-btn__front-edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--button-default-border-radius);
+  background: var(--button-primary-color-light);
+  transform: translateY(calc(var(--button-raise-level) * -1 + 1px));
+  transition: transform var(--transform-speed) ease-in-out;
+  z-index: 3;
+}
+
+.aws-btn__front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--button-default-border-radius);
+  background: var(--button-primary-color);
+  transform: translateY(calc(var(--button-raise-level) * -1));
+  transition: transform var(--transform-speed) ease-in-out;
+  z-index: 3;
+}
+
+.aws-btn:hover .aws-btn__shadow {
+  transform: translateY(calc(var(--button-raise-level) - var(--button-hover-pressure)));
+}
+
+.aws-btn:hover .aws-btn__front-edge,
+.aws-btn:hover .aws-btn__front {
+  transform: translateY(calc((var(--button-raise-level) * -1) + var(--button-hover-pressure)));
+}
+
+.aws-btn:hover .aws-btn__front {
+  background: var(--button-primary-color-hover);
+}
+
+.aws-btn:active .aws-btn__shadow {
+  transform: translateY(0);
+}
+
+.aws-btn:active .aws-btn__front-edge,
+.aws-btn:active .aws-btn__front {
+  transform: translateY(0);
+}
+
+/* Dark mode specific adjustments */
+@media (prefers-color-scheme: dark) {
+  .aws-btn__content {
+    color: white;
+  }
+}
