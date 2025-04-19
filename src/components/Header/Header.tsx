@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import {useLocation } from 'react-router-dom';
 import { useTheme } from '../../context/ThemeContext';
 import { FaSun, FaMoon } from 'react-icons/fa';
 
@@ -132,8 +132,9 @@ const Header = () => {
             </a>
           </nav>
 
-          {/* Theme Toggle */}
-          <div className="hidden md:block">
+          {/* Right Side Items */}
+          <div className="hidden md:flex items-center space-x-4">
+            {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
               className="p-2 rounded-full"
@@ -145,6 +146,21 @@ const Header = () => {
                 <FaMoon className="h-5 w-5" />
               )}
             </button>
+            
+            {/* Admin Login Button */}
+            <a
+              href="https://tsm.expendifii.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:opacity-90"
+              style={{ 
+                backgroundColor: themeColors.accent,
+                color: '#fff',
+                boxShadow: `0 2px 8px ${themeColors.accent}40`
+              }}
+            >
+              Login as Admin
+            </a>
           </div>
 
           {/* Mobile Navigation Toggle */}
@@ -265,6 +281,20 @@ const Header = () => {
                 </>
               )}
             </button>
+            
+            {/* Admin Login Link */}
+            <a
+              href="https://tsm.expendifii.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 flex items-center justify-center py-2 rounded-md transition-all duration-300"
+              style={{ 
+                backgroundColor: themeColors.accent,
+                color: '#fff'
+              }}
+            >
+              Login as Admin
+            </a>
           </nav>
         </div>
       )}

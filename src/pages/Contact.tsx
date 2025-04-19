@@ -4,7 +4,7 @@ import { useTheme } from '../context/ThemeContext';
 import AwsButton from '../components/AwsButton/AwsButton';
 
 const Contact = () => {
-  const { themeColors } = useTheme();
+  const { themeColors, theme } = useTheme();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [subject, setSubject] = useState('');
@@ -72,38 +72,57 @@ const Contact = () => {
         }
       `}</style>
 
-      <Stepper
-        initialStep={1}
-        onStepChange={(step) => {
-          console.log(step);
-        }}
-        onFinalStepCompleted={handleSubmit}
-        backButtonText="Previous"
-        nextButtonText="Next"
-        submitButton={(props) => (
-          <AwsButton {...props}>
-            Submit
-          </AwsButton>
-        )}
-        nextButtonComponent={(props) => (
-          <AwsButton {...props}>
-            Next
-          </AwsButton>
-        )}
-        backButtonComponent={(props) => (
-          <button 
-            {...props} 
-            className="px-6 py-3 rounded-lg font-medium transition-colors duration-300 mr-4"
-            style={{ 
-              backgroundColor: 'transparent',
-              color: themeColors.text.primary,
-              border: `1px solid ${themeColors.gridBorder}`
+      <div className="container mx-auto px-6 md:px-16 lg:px-24 max-w-3xl mb-10 gap-10">
+        <div className="text-center mb-12">
+          <div className="inline-block px-4 py-1 mb-4 rounded-full" style={{ 
+            backgroundColor: `${themeColors.accent}20`,
+            color: themeColors.accent,
+            border: `1px solid ${themeColors.accent}40`
+          }}>
+            <span className="text-sm font-medium">Get In Touch</span>
+          </div>
+          
+          <h2 className="text-3xl md:text-4xl font-bold mb-10" style={{ color: themeColors.text.primary }}>
+            Contact Us
+          </h2>
+          
+          
+        </div>
+
+        {/* Added margin-top to create gap between heading and stepper */}
+        <div className="p-6 mt-8">
+          <Stepper
+            initialStep={1}
+            onStepChange={(step) => {
+              console.log(step);
             }}
+            onFinalStepCompleted={handleSubmit}
+            backButtonText="Previous"
+            nextButtonText="Next"
+            submitButton={(props) => (
+              <AwsButton {...props}>
+                Submit
+              </AwsButton>
+            )}
+            nextButtonComponent={(props) => (
+              <AwsButton {...props}>
+                Next
+              </AwsButton>
+            )}
+            backButtonComponent={(props) => (
+              <button 
+                {...props} 
+                className="px-6 py-3 rounded-lg font-medium transition-colors duration-300 mr-4"
+                style={{ 
+                  backgroundColor: 'transparent',
+                  color: themeColors.text.primary,
+                  border: `1px solid ${themeColors.gridBorder}`
+                }}
+              >
+                Previous
+              </button>
+            )}
           >
-            Previous
-          </button>
-        )}
-      >
         {/* Step 1: Name */}
         <Step>
           <div className="mb-8">
@@ -327,11 +346,13 @@ const Contact = () => {
             )}
           </div>
         </Step>
-      </Stepper>
-    </section>
-  );
-};
+        </Stepper>
+        </div>
+        </div>
+        </section>
+      );
+    };
 
-// Export as both default and named export to make it available for Home page
-export { Contact };
-export default Contact;
+    // Export as both default and named export to make it available for Home page
+    export { Contact };
+    export default Contact;

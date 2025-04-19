@@ -69,25 +69,25 @@ export const InfiniteMenuTrucks = [
   {
     image: 'https://picsum.photos/300/300?grayscale',
     link: 'https://google.com/',
-    title: 'Item 1',
+    title: 'By Hands',
     description: 'This is pretty cool, right?'
   },
   {
     image: 'https://picsum.photos/400/400?grayscale',
     link: 'https://google.com/',
-    title: 'Item 2',
+    title: 'By Water',
     description: 'This is pretty cool, right?'
   },
   {
     image: 'https://picsum.photos/500/500?grayscale',
     link: 'https://google.com/',
-    title: 'Item 3',
+    title: 'By Air',
     description: 'This is pretty cool, right?'
   },
   {
     image: 'https://picsum.photos/600/600?grayscale',
     link: 'https://google.com/',
-    title: 'Item 4',
+    title: 'By Trucks',
     description: 'This is pretty cool, right?'
   }
 ];
@@ -168,4 +168,49 @@ export const partners = [
     description: "SMA POWER CONTROLS is one of the leading manufacturer of custom Built Low Voltage & Medium Voltage Panels, Switch gears, Motor Starters & Automation and also executes Turnkey Projects",
     imageSrc: "/assets/partners/client-2.png"
   }
+];
+
+
+// List of Indian states with their details
+export const indianStates = [
+  { name: 'Andhra Pradesh', capital: 'Amaravati', image: '/assets/states/andhra-pradesh.jpg' },
+  { name: 'Arunachal Pradesh', capital: 'Itanagar', image: '/assets/states/arunachal-pradesh.jpg' },
+  { name: 'Assam', capital: 'Dispur', image: '/assets/states/assam.jpg' },
+  { name: 'Bihar', capital: 'Patna', image: '/assets/states/bihar.jpg' },
+  { name: 'Chhattisgarh', capital: 'Raipur', image: '/assets/states/chhattisgarh.jpg' },
+  { name: 'Goa', capital: 'Panaji', image: '/assets/states/goa.jpg' },
+  { name: 'Gujarat', capital: 'Gandhinagar', image: '/assets/states/gujarat.avif' },
+  { name: 'Haryana', capital: 'Chandigarh', image: '/assets/states/haryana.jpg' },
+  { name: 'Himachal Pradesh', capital: 'Shimla', image: '/assets/states/himachal-pradesh.jpg' },
+  { name: 'Jharkhand', capital: 'Ranchi', image: '/assets/states/jharkhand.jpg' },
+  { name: 'Karnataka', capital: 'Bengaluru', image: '/assets/states/karnataka.jpg' },
+  { name: 'Kerala', capital: 'Thiruvananthapuram', image: '/assets/states/kerala.jpg' },
+  { name: 'Madhya Pradesh', capital: 'Bhopal', image: '/assets/states/madhya-pradesh.jpg' },
+  { name: 'Maharashtra', capital: 'Mumbai', image: '/assets/states/maharashtra.jpg' },
+  { name: 'Manipur', capital: 'Imphal', image: '/assets/states/manipur.jpg' },
+  { name: 'Meghalaya', capital: 'Shillong', image: '/assets/states/meghalaya.jpg' },
+  { name: 'Mizoram', capital: 'Aizawl', image: '/assets/states/mizoram.jpg' },
+  { name: 'Nagaland', capital: 'Kohima', image: '/assets/states/nagaland.jpg' },
+  { name: 'Odisha', capital: 'Bhubaneswar', image: '/assets/states/odisha.jpg' },
+  { name: 'Punjab', capital: 'Chandigarh', image: '/assets/states/punjab.jpg' },
+  { name: 'Rajasthan', capital: 'Jaipur', image: '/assets/states/rajasthan.jpg' },
+  { name: 'Sikkim', capital: 'Gangtok', image: '/assets/states/sikkim.jpg' },
+  { name: 'Tamil Nadu', capital: 'Chennai', image: '/assets/states/tamil-nadu.jpg' },
+  { name: 'Telangana', capital: 'Hyderabad', image: '/assets/states/telangana.jpg' },
+  { name: 'Tripura', capital: 'Agartala', image: '/assets/states/tripura.jpg' },
+  { name: 'Uttar Pradesh', capital: 'Lucknow', image: '/assets/states/uttar-pradesh.jpg' },
+  { name: 'Uttarakhand', capital: 'Dehradun', image: '/assets/states/uttarakhand.jpg' },
+  { name: 'West Bengal', capital: 'Kolkata', image: '/assets/states/west-bengal.jpg' },
+];
+
+// Union Territories
+export const unionTerritories = [
+  { name: 'Andaman and Nicobar Islands', capital: 'Port Blair', image: '/assets/states/andaman-nicobar.jpg' },
+  { name: 'Chandigarh', capital: 'Chandigarh', image: '/assets/states/chandigarh.jpg' },
+  { name: 'Dadra and Nagar Haveli and Daman and Diu', capital: 'Daman', image: '/assets/states/dadra-nagar-haveli.jpg' },
+  { name: 'Delhi', capital: 'New Delhi', image: '/assets/states/delhi.jpg' },
+  { name: 'Jammu and Kashmir', capital: 'Srinagar/Jammu', image: '/assets/states/jammu-kashmir.jpg' },
+  { name: 'Ladakh', capital: 'Leh', image: '/assets/states/ladakh.jpg' },
+  { name: 'Lakshadweep', capital: 'Kavaratti', image: '/assets/states/lakshadweep.jpg' },
+  { name: 'Puducherry', capital: 'Puducherry', image: '/assets/states/puducherry.jpg' },
 ];

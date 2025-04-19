@@ -30,7 +30,7 @@ const { themeColors } = useTheme();
       
       {/* Contact Section */}
 
-      <HomeContact />
+      {/* <HomeContact /> */}
     </div>
   );
 };

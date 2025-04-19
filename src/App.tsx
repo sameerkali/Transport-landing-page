@@ -7,9 +7,13 @@ import Home from './pages/Home';
 import Contact from './pages/Contact';
 import Services from './pages/Services';
 import Destinations from './pages/Destinations';
-import { ThemeProvider } from './context/ThemeContext';
+import { ThemeProvider, useTheme } from './context/ThemeContext';
+import ClickSpark from './Animations/ClickSpark/ClickSpark';
 
-function App() {
+// Wrapper component to use theme context
+const AppContent = () => {
+  const { themeColors } = useTheme();
+  
   useEffect(() => {
     // Set up scroll functionality
     const handleNavigation = (e: MouseEvent) => {
@@ -45,8 +49,24 @@ function App() {
     };
   }, []);
 
+  // Define animation settings
+  const animations = {
+    spark: {
+      size: 4,
+      radius: 50,
+      count: 20,
+      duration: 500
+    }
+  };
+
   return (
-    <ThemeProvider>
+    <ClickSpark
+      sparkColor={themeColors.accent || "#00a8ff"}
+      sparkSize={animations.spark.size}
+      sparkRadius={animations.spark.radius}
+      sparkCount={animations.spark.count}
+      duration={animations.spark.duration}
+    >
       <Router>
         <div className="flex flex-col min-h-screen">
           <Header />
@@ -68,8 +88,26 @@ function App() {
           <Footer />
         </div>
       </Router>
+    </ClickSpark>
+  );
+};
+
+function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
     </ThemeProvider>
   );
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+

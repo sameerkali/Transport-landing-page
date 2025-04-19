@@ -2,50 +2,9 @@ import { useState, useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import TiltedCard from '../components/TiltedCard/TiltedCard';
 import TrueFocus from '../TextAnimations/TrueFocus/TrueFocus';
+import { indianStates, unionTerritories } from '../content';
 
-// List of Indian states with their details
-const indianStates = [
-  { name: 'Andhra Pradesh', capital: 'Amaravati', image: '/assets/states/andhra-pradesh.jpg' },
-  { name: 'Arunachal Pradesh', capital: 'Itanagar', image: '/assets/states/arunachal-pradesh.jpg' },
-  { name: 'Assam', capital: 'Dispur', image: '/assets/states/assam.jpg' },
-  { name: 'Bihar', capital: 'Patna', image: '/assets/states/bihar.jpg' },
-  { name: 'Chhattisgarh', capital: 'Raipur', image: '/assets/states/chhattisgarh.jpg' },
-  { name: 'Goa', capital: 'Panaji', image: '/assets/states/goa.jpg' },
-  { name: 'Gujarat', capital: 'Gandhinagar', image: '/assets/states/gujarat.avif' },
-  { name: 'Haryana', capital: 'Chandigarh', image: '/assets/states/haryana.jpg' },
-  { name: 'Himachal Pradesh', capital: 'Shimla', image: '/assets/states/himachal-pradesh.jpg' },
-  { name: 'Jharkhand', capital: 'Ranchi', image: '/assets/states/jharkhand.jpg' },
-  { name: 'Karnataka', capital: 'Bengaluru', image: '/assets/states/karnataka.jpg' },
-  { name: 'Kerala', capital: 'Thiruvananthapuram', image: '/assets/states/kerala.jpg' },
-  { name: 'Madhya Pradesh', capital: 'Bhopal', image: '/assets/states/madhya-pradesh.jpg' },
-  { name: 'Maharashtra', capital: 'Mumbai', image: '/assets/states/maharashtra.jpg' },
-  { name: 'Manipur', capital: 'Imphal', image: '/assets/states/manipur.jpg' },
-  { name: 'Meghalaya', capital: 'Shillong', image: '/assets/states/meghalaya.jpg' },
-  { name: 'Mizoram', capital: 'Aizawl', image: '/assets/states/mizoram.jpg' },
-  { name: 'Nagaland', capital: 'Kohima', image: '/assets/states/nagaland.jpg' },
-  { name: 'Odisha', capital: 'Bhubaneswar', image: '/assets/states/odisha.jpg' },
-  { name: 'Punjab', capital: 'Chandigarh', image: '/assets/states/punjab.jpg' },
-  { name: 'Rajasthan', capital: 'Jaipur', image: '/assets/states/rajasthan.jpg' },
-  { name: 'Sikkim', capital: 'Gangtok', image: '/assets/states/sikkim.jpg' },
-  { name: 'Tamil Nadu', capital: 'Chennai', image: '/assets/states/tamil-nadu.jpg' },
-  { name: 'Telangana', capital: 'Hyderabad', image: '/assets/states/telangana.jpg' },
-  { name: 'Tripura', capital: 'Agartala', image: '/assets/states/tripura.jpg' },
-  { name: 'Uttar Pradesh', capital: 'Lucknow', image: '/assets/states/uttar-pradesh.jpg' },
-  { name: 'Uttarakhand', capital: 'Dehradun', image: '/assets/states/uttarakhand.jpg' },
-  { name: 'West Bengal', capital: 'Kolkata', image: '/assets/states/west-bengal.jpg' },
-];
 
-// Union Territories
-const unionTerritories = [
-  { name: 'Andaman and Nicobar Islands', capital: 'Port Blair', image: '/assets/states/andaman-nicobar.jpg' },
-  { name: 'Chandigarh', capital: 'Chandigarh', image: '/assets/states/chandigarh.jpg' },
-  { name: 'Dadra and Nagar Haveli and Daman and Diu', capital: 'Daman', image: '/assets/states/dadra-nagar-haveli.jpg' },
-  { name: 'Delhi', capital: 'New Delhi', image: '/assets/states/delhi.jpg' },
-  { name: 'Jammu and Kashmir', capital: 'Srinagar/Jammu', image: '/assets/states/jammu-kashmir.jpg' },
-  { name: 'Ladakh', capital: 'Leh', image: '/assets/states/ladakh.jpg' },
-  { name: 'Lakshadweep', capital: 'Kavaratti', image: '/assets/states/lakshadweep.jpg' },
-  { name: 'Puducherry', capital: 'Puducherry', image: '/assets/states/puducherry.jpg' },
-];
 
 
 
@@ -212,24 +171,7 @@ const Destinations = () => {
           ))}
         </div>
 
-        {/* Call to Action */}
-        <div className="mt-16 text-center">
-          <h3 className="text-2xl font-bold mb-4" style={{ color: themeColors.text.primary }}>
-            Need Transport Services?
-          </h3>
-          <p className="mb-6" style={{ color: themeColors.text.secondary }}>
-            We operate across India with reliable and efficient transport solutions
-          </p>
-          <button
-            className="px-6 py-3 rounded-lg font-medium transition-colors duration-300"
-            style={{ 
-              backgroundColor: themeColors.secondary,
-              color: '#FFFFFF'
-            }}
-          >
-            Contact Us
-          </button>
-        </div>
+   
       </div>
     </section>
   );
