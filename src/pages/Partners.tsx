@@ -36,7 +36,7 @@ const Partners = () => {
               <TiltedCard
                 imageSrc={partner.imageSrc}
                 //  imageSrc="https://i.scdn.co/image/ab67616d0000b273d9985092cd88bffd97653b58"
-                altText={`${partners.name} Logo`}
+                altText={`${partner.name} Logo`}
                 captionText={partner.name}
                 containerHeight="250px"
                 containerWidth="300px"
