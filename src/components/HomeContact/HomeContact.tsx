@@ -9,7 +9,7 @@ const HomeContact = () => {
     // Add id="contact-section" to the section element
     <section id="contact-section" className="py-16">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <div className="text-center mb-[-6rem]">
           <h2 className="text-3xl font-bold mb-4" style={{ color: themeColors.text.primary }}>
             Get In Touch
           </h2>

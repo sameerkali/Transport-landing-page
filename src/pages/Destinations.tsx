@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
+import { FaMapMarkerAlt, FaPlane, FaShip, FaTruck, FaGlobeAmericas } from 'react-icons/fa';
+import SpotlightCard from '../components/SpotlightCard/SpotlightCard';
 import TiltedCard from '../components/TiltedCard/TiltedCard';
 import TrueFocus from '../TextAnimations/TrueFocus/TrueFocus';
 
@@ -105,7 +107,7 @@ const Destinations = () => {
     : getRegionUTs(selectedRegion);
 
   return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: themeColors.background }}>
+    <section id="destinations" className="py-16 md:py-24" style={{ backgroundColor: themeColors.background }}>
       <div className="container mx-auto px-6 md:px-16 lg:px-24 max-w-7xl">
         <div className="text-center mb-12">
           <TrueFocus 

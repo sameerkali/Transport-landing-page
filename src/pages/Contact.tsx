@@ -19,8 +19,9 @@ const Contact = () => {
     setTimeout(() => setShowConfetti(false), 3000); // Hide confetti after 3 seconds
   };
 
+  // Add this at the beginning of your Contact component
   return (
-    <div className="py-16 px-4 max-w-3xl mx-auto" style={{ backgroundColor: themeColors.background }}>
+    <section id="contact-section" className="py-16 md:py-24" style={{ backgroundColor: themeColors.background }}>
       {showConfetti && (
         <div className="confetti-container">
           {[...Array(50)].map((_, i) => (
@@ -79,7 +80,7 @@ const Contact = () => {
         onFinalStepCompleted={handleSubmit}
         backButtonText="Previous"
         nextButtonText="Next"
-        submitButtonComponent={(props) => (
+        submitButtonComponent={(props: React.ButtonHTMLAttributes<HTMLButtonElement>) => (
           <AwsButton {...props}>
             Submit
           </AwsButton>
@@ -327,7 +328,7 @@ const Contact = () => {
           </div>
         </Step>
       </Stepper>
-    </div>
+    </section>
   );
 };
 

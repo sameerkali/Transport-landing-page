@@ -5,8 +5,6 @@ import Partners from "./Partners";
 import NationwideCoverage from "../components/NationwideCoverage/NationwideCoverage";
 import InfiniteMenu from "../components/InfiniteMenu/InfiniteMenu";
 import { InfiniteMenuTrucks } from "../content";
-import { Link } from 'react-router-dom';
-import AwsButton from '../components/AwsButton/AwsButton';
 import { useTheme } from "../context/ThemeContext";
 
 // Add this import to your Home.tsx file

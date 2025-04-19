@@ -1,12 +1,14 @@
-import { FaSun, FaMoon } from 'react-icons/fa';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTheme } from '../../context/ThemeContext';
-import { useState, useEffect } from 'react';
+import { FaSun, FaMoon } from 'react-icons/fa';
 
 const Header = () => {
   const { theme, toggleTheme, themeColors } = useTheme();
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const isDarkMode = theme === 'dark';
 
   // Track scroll position to add background on scroll
   useEffect(() => {
@@ -23,98 +25,250 @@ const Header = () => {
     };
   }, [scrolled]);
 
-  // Function to handle scrolling to contact section
-  const scrollToContact = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const contactSection = document.getElementById('contact-section');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    } else if (location.pathname !== '/') {
-      // If not on home page, navigate to home and then scroll
-      window.location.href = '/#contact-section';
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+  };
+
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+      closeMobileMenu();
+    } else {
+      // If section doesn't exist yet, try again after a short delay
+      // This helps when components are still loading
+      setTimeout(() => {
+        const delayedSection = document.getElementById(sectionId);
+        if (delayedSection) {
+          delayedSection.scrollIntoView({ behavior: 'smooth' });
+        } else if (location.pathname !== '/') {
+          // If still not found and not on home page, redirect to home with hash
+          window.location.href = `/#${sectionId}`;
+        } else {
+          // If on home page but section not found, scroll to top as fallback
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        closeMobileMenu();
+      }, 100);
     }
   };
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 px-6 py-4 flex justify-between items-center transition-all duration-300 ${
-        scrolled ? 'backdrop-blur-md' : 'backdrop-blur-none'
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? "py-2 backdrop-blur-md" : "py-4"
       }`}
-      style={{ 
-        backgroundColor: scrolled ? `${themeColors.background}80` : 'transparent'
+      style={{
+        backgroundColor: scrolled ? `${themeColors.background}80` : 'transparent',
+        borderBottom: scrolled ? `1px solid ${themeColors.gridBorder}` : 'none',
       }}
     >
-      <div className="text-xl font-extrabold tracking-wide" style={{ color: themeColors.text.primary }}>
-        Expendifii      </div>
-      
-      <div className="flex items-center space-x-8">
-        <NavLink to="/" active={location.pathname === '/'} themeColors={themeColors}>
-          Home
-        </NavLink>
-        <NavLink to="/services" active={location.pathname === '/services'} themeColors={themeColors}>
-          Services
-        </NavLink>
-        <NavLink to="/destinations" active={location.pathname === '/destinations'} themeColors={themeColors}>
-          Destinations
-        </NavLink>
-        {/* Modified Contact link to use the scroll function instead of navigation */}
-        <a 
-          href="#contact-section"
-          onClick={scrollToContact}
-          className={`relative font-bold text-base transition-all duration-300 hover:scale-105 ${
-            location.hash === '#contact-section' ? 'text-opacity-100' : 'text-opacity-80 hover:text-opacity-100'
-          }`}
-          style={{ color: themeColors.text.primary }}
-        >
-          Contact
-          <span 
-            className={`absolute bottom-0 left-0 w-full h-0.5 transform origin-left transition-transform duration-300 ${
-              location.hash === '#contact-section' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
-            }`}
-            style={{ backgroundColor: themeColors.secondary }}
-          ></span>
-        </a>
-        
-        {/* Theme Toggle Button */}
-        <button
-          onClick={toggleTheme}
-          className="p-2 rounded-full transition-all duration-300 focus:outline-none hover:scale-110"
-          style={{ 
-            backgroundColor: themeColors.accent,
-            color: themeColors.text.primary
-          }}
-          aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-        >
-          {theme === 'light' ? <FaMoon size={16} /> : <FaSun size={16} />}
-        </button>
-      </div>
-    </header>
-  );
-};
+      <div className="container mx-auto px-6 md:px-16 lg:px-24 max-w-7xl">
+        <div className="flex justify-between items-center">
+          {/* Logo */}
+          <div className="flex items-center">
+            <a 
+              href="#" 
+              onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="text-xl md:text-2xl font-bold transition-colors duration-300"
+              style={{ color: themeColors.text.primary }}
+            >
+              Transport
+            </a>
+          </div>
 
-// Custom NavLink component for interactive navigation links
-const NavLink = ({ to, active, children, themeColors }: { 
-  to: string; 
-  active: boolean; 
-  children: React.ReactNode;
-  themeColors: any;
-}) => {
-  return (
-    <Link 
-      to={to} 
-      className={`relative font-bold text-base transition-all duration-300 hover:scale-105 ${
-        active ? 'text-opacity-100' : 'text-opacity-80 hover:text-opacity-100'
-      }`}
-      style={{ color: themeColors.text.primary }}
-    >
-      {children}
-      <span 
-        className={`absolute bottom-0 left-0 w-full h-0.5 transform origin-left transition-transform duration-300 ${
-          active ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
-        }`}
-        style={{ backgroundColor: themeColors.secondary }}
-      ></span>
-    </Link>
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-8">
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="transition-colors duration-300 hover:text-opacity-80"
+              style={{ color: themeColors.text.primary }}
+            >
+              Home
+            </a>
+            <a
+              href="#services"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('services');
+              }}
+              className="transition-colors duration-300 hover:text-opacity-80"
+              style={{ color: themeColors.text.primary }}
+            >
+              Services
+            </a>
+            <a
+              href="#destinations"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('destinations');
+              }}
+              className="transition-colors duration-300 hover:text-opacity-80"
+              style={{ color: themeColors.text.primary }}
+            >
+              Destinations
+            </a>
+            <a
+              href="#contact-section"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('contact-section');
+              }}
+              className="transition-colors duration-300 hover:text-opacity-80"
+              style={{ color: themeColors.text.primary }}
+            >
+              Contact
+            </a>
+          </nav>
+
+          {/* Theme Toggle */}
+          <div className="hidden md:block">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full"
+              style={{ color: themeColors.text.primary }}
+            >
+              {isDarkMode ? (
+                <FaSun className="h-5 w-5" />
+              ) : (
+                <FaMoon className="h-5 w-5" />
+              )}
+            </button>
+          </div>
+
+          {/* Mobile Navigation Toggle */}
+          <div className="md:hidden">
+            <button
+              onClick={toggleMobileMenu}
+              className="p-2 rounded-md"
+              style={{ color: themeColors.text.primary }}
+            >
+              {mobileMenuOpen ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16m-7 6h7"
+                  />
+                </svg>
+              )}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div
+          className="md:hidden py-4 px-6 backdrop-blur-md"
+          style={{
+            backgroundColor: `${themeColors.background}90`,
+            borderTop: `1px solid ${themeColors.gridBorder}`,
+          }}
+        >
+          <nav className="flex flex-col space-y-4">
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                closeMobileMenu();
+              }}
+              className="transition-colors duration-300"
+              style={{ color: themeColors.text.primary }}
+            >
+              Home
+            </a>
+            <a
+              href="#services"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('services');
+              }}
+              className="transition-colors duration-300"
+              style={{ color: themeColors.text.primary }}
+            >
+              Services
+            </a>
+            <a
+              href="#destinations"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('destinations');
+              }}
+              className="transition-colors duration-300"
+              style={{ color: themeColors.text.primary }}
+            >
+              Destinations
+            </a>
+            <a
+              href="#contact-section"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('contact-section');
+              }}
+              className="transition-colors duration-300"
+              style={{ color: themeColors.text.primary }}
+            >
+              Contact
+            </a>
+            <button
+              onClick={() => {
+                toggleTheme();
+                closeMobileMenu();
+              }}
+              className="flex items-center"
+              style={{ color: themeColors.text.primary }}
+            >
+              {isDarkMode ? (
+                <>
+                  <FaSun className="h-5 w-5 mr-2" />
+                  <span>Light Mode</span>
+                </>
+              ) : (
+                <>
+                  <FaMoon className="h-5 w-5 mr-2" />
+                  <span>Dark Mode</span>
+                </>
+              )}
+            </button>
+          </nav>
+        </div>
+      )}
+    </header>
   );
 };
 
