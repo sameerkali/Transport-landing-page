@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
-import { FaMapMarkerAlt, FaPlane, FaShip, FaTruck, FaGlobeAmericas } from 'react-icons/fa';
-import SpotlightCard from '../components/SpotlightCard/SpotlightCard';
 import TiltedCard from '../components/TiltedCard/TiltedCard';
 import TrueFocus from '../TextAnimations/TrueFocus/TrueFocus';
 
@@ -49,7 +47,7 @@ const unionTerritories = [
   { name: 'Puducherry', capital: 'Puducherry', image: '/assets/states/puducherry.jpg' },
 ];
 
-import { useEffect } from 'react';
+
 
 const Destinations = () => {
   // Scroll to top when component mounts

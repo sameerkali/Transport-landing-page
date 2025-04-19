@@ -80,7 +80,7 @@ const Contact = () => {
         onFinalStepCompleted={handleSubmit}
         backButtonText="Previous"
         nextButtonText="Next"
-        submitButtonComponent={(props: React.ButtonHTMLAttributes<HTMLButtonElement>) => (
+        submitButton={(props) => (
           <AwsButton {...props}>
             Submit
           </AwsButton>
