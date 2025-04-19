@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { animations, heroContent } from '../content';
+import { heroContent } from '../content';
 import { useTheme } from '../context/ThemeContext';
 import VariableProximity from '../TextAnimations/VariableProximity/VariableProximity';
 import AwsButton from '../components/AwsButton/AwsButton';

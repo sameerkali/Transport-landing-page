@@ -41,7 +41,6 @@ const IndiaMap: React.FC<IndiaMapProps> = ({
 
       // Add hover animations for each state
       paths.forEach(path => {
-        const stateName = path.getAttribute('data-state');
         
         path.addEventListener('mouseenter', () => {
           gsap.to(path, {

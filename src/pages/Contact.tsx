@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Stepper, { Step } from '../components/Stepper/Stepper';
 import { useTheme } from '../context/ThemeContext';
 import AwsButton from '../components/AwsButton/AwsButton';
 
 const Contact = () => {
-  const { themeColors, theme } = useTheme();
+  const { themeColors } = useTheme();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [subject, setSubject] = useState('');
+  const [subject] = useState('');
   const [message, setMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);

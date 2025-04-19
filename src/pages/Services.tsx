@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
-import { FaTruck, FaShip, FaPlane, FaWarehouse, FaGlobeAmericas, FaBoxOpen, FaLock } from 'react-icons/fa';
+import { FaTruck, FaShip, FaPlane, FaWarehouse, FaGlobeAmericas, FaBoxOpen } from 'react-icons/fa';
 import SpotlightCard from '../components/SpotlightCard/SpotlightCard';
 import { Link } from 'react-router-dom';
 

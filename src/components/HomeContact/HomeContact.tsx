@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Contact } from '../../pages/Contact';
 import { useTheme } from '../../context/ThemeContext';
 

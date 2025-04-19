@@ -5,13 +5,9 @@ import Partners from "./Partners";
 import NationwideCoverage from "../components/NationwideCoverage/NationwideCoverage";
 import InfiniteMenu from "../components/InfiniteMenu/InfiniteMenu";
 import { InfiniteMenuTrucks } from "../content";
-import { useTheme } from "../context/ThemeContext";
 
-// Add this import to your Home.tsx file
-import HomeContact from '../components/HomeContact/HomeContact';
 
 const Home = () => {
-const { themeColors } = useTheme();
   
   return (
     <div className="pb-20">
