@@ -14,7 +14,7 @@ const Home = () => {
       <Hero />
       <ScrollVelocity
         texts={["Transport Solutions", "Reliable Service"]}
-        velocity={50}
+        velocity={0.1}
         className="custom-scroll-text"
       />
       <WhyUs />
@@ -24,9 +24,6 @@ const Home = () => {
         <InfiniteMenu items={InfiniteMenuTrucks} />
       </div>
       
-      {/* Contact Section */}
-
-      {/* <HomeContact /> */}
     </div>
   );
 };
