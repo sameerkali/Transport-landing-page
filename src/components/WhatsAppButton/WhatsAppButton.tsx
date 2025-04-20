@@ -1,11 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import lottie from 'lottie-web';
 import whatsappAnimation from '../../assets/truck-images/whatsapp.json';
-import { useTheme } from '../../context/ThemeContext';
 
 const WhatsAppButton: React.FC = () => {
   const animationContainer = useRef<HTMLDivElement>(null);
-  const { themeColors } = useTheme();
+
   
   useEffect(() => {
     if (animationContainer.current) {
