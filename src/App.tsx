@@ -9,6 +9,8 @@ import Services from './pages/Services';
 import Destinations from './pages/Destinations';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
 import ClickSpark from './Animations/ClickSpark/ClickSpark';
+import WhatsAppButton from './components/WhatsAppButton/WhatsAppButton';
+import { animations } from './content';
 
 // Wrapper component to use theme context
 const AppContent = () => {
@@ -49,19 +51,9 @@ const AppContent = () => {
     };
   }, []);
 
-  // Define animation settings
-  const animations = {
-    spark: {
-      size: 4,
-      radius: 50,
-      count: 20,
-      duration: 500
-    }
-  };
-
   return (
     <ClickSpark
-      sparkColor={themeColors.accent || "#00a8ff"}
+      sparkColor={themeColors.sparkColor || "#FF7F00"}
       sparkSize={animations.spark.size}
       sparkRadius={animations.spark.radius}
       sparkCount={animations.spark.count}
@@ -86,6 +78,7 @@ const AppContent = () => {
             </Routes>
           </main>
           <Footer />
+          <WhatsAppButton />
         </div>
       </Router>
     </ClickSpark>
