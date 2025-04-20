@@ -94,6 +94,11 @@ export const InfiniteMenuTrucks = [
 
 export const partners = [
   {
+    name: "FARIDI TRANSPORT",
+    description: "Wild Shaale - Transforming Conservation Education for Children Living Around India's Parks. Wild Shaale is a unique environmental and conservation education program that aims to foster interest and build awareness in rural children living in proximity to wildlife.",
+    imageSrc: "/assets/partners/client-10.jpg"
+  },
+  {
     name: "GIVE FOUNDATION",
     description: "Wild Shaale - Transforming Conservation Education for Children Living Around India's Parks. Wild Shaale is a unique environmental and conservation education program that aims to foster interest and build awareness in rural children living in proximity to wildlife.",
     imageSrc: "/assets/partners/client-1.jpg"
